@@ -30,7 +30,7 @@ router.route('/algorithms').get((req, res) => {
 });
 
 router.route('/algorithsm/:id').get((req, res) => {
-    Algorithm.find(req.params.id, (err, algorithm) => {
+    Algorithm.findById(req.params.id, (err, algorithm) => {
         if (err) {
             console.error(err);
         }
