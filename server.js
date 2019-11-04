@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import Algorithm from './models/Algorithm';
 
 const app = express();
 const router = express.Router();
@@ -15,6 +16,17 @@ const connection = mongoose.connection;
 
 connection.once('open', () => {
     console.log('MongoDB database connection established successfully!');
+});
+
+router.route('/algorithms').get((req, res) => {
+    Algorithm.find((err, algorithms) => {
+        if (err) {
+            console.error(err);
+        }
+        else {
+            res.json(algorithms);
+        }
+    });
 });
 
 app.use('/', router);
