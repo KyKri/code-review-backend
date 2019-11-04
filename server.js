@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+
 import Algorithm from './models/Algorithm';
 
 const app = express();
@@ -10,7 +11,7 @@ const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://[server]/issues');
+mongoose.connect('mongodb://localhost/CodeReview');
 
 const connection = mongoose.connection;
 
