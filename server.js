@@ -29,6 +29,17 @@ router.route('/algorithms').get((req, res) => {
     });
 });
 
+router.route('/algorithsm/:id').get((req, res) => {
+    Algorithm.find(req.params.id, (err, algorithm) => {
+        if (err) {
+            console.error(err);
+        }
+        else {
+            res.json(issue);
+        }
+    });
+});
+
 app.use('/', router);
 
 app.listen(4000, () => console.log(`Express server running on port 4000`));
