@@ -11,7 +11,7 @@ const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost/CodeReview');
+mongoose.connect('mongodb://localhost/codereview');
 
 const connection = mongoose.connection;
 
@@ -30,13 +30,13 @@ router.route('/algorithms').get((req, res) => {
     });
 });
 
-router.route('/algorithsm/:id').get((req, res) => {
+router.route('/algorithms/:id').get((req, res) => {
     Algorithm.findById(req.params.id, (err, algorithm) => {
         if (err) {
             console.error(err);
         }
         else {
-            res.json(issue);
+            res.json(algorithm);
         }
     });
 });
