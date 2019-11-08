@@ -76,7 +76,7 @@ router.route('/algorithms/update/:id').post((req, res) => {
     });
 });
 
-router.route('/algorithms/delete/:id').post((req, res) => {
+router.route('/algorithms/delete/:id').get((req, res) => {
     Algorithm.findByIdAndRemove({_id: req.params.id}, (err, algorithm) => {
         if (err) {
             res.json(err);
