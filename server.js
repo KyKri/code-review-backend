@@ -50,7 +50,7 @@ router.route('/algorithms/add').post((req, res) => {
             res.status(200).json({'message': 'Added successfully.'});
         })
         .catch(err => {
-            res.json(400).json({'message': 'Failed to create new record.'});
+            res.status(400).json({'message': 'Failed to create new record.'});
         });
 });
 
